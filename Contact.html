@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <style>
+    body {
+      background: linear-gradient(rgb(196, 17, 166), rgb(80, 1, 14));
+      margin: 0px;
+      padding: 0px;
+    }
+
+    #contact {
+      color: white;
+      height: 600px;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: auto;
+    }
+
+    #contact h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+      color: black;
+      text-align: left;
+      position: relative;
+      right: 200px;
+    }
+
+    .form-box {
+      background-color: #fff;
+      color: #000;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 150px 150px rgba(9, 186, 18, 0.2);
+      position: relative;
+      right: 400px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      align-items: right;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 15px 5px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 15px 30px;
+      background-color: blue;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: rgb(36, 36, 74);
+    }
+
+   
+    @media (max-width: 768px) {
+      #contact h2 {
+        right: 0;
+        text-align: center;
+      }
+
+      .form-box {
+        right: 0;
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #contact {
+        padding: 40px 10px 220px;
+        height: auto;
+      }
+
+      #contact h2 {
+        font-size: 28px;
+        text-align: center;
+      }
+
+      .form-box {
+        padding: 20px;
+        right: 0;
+      }
+
+      input, textarea {
+        font-size: 14px;
+        padding: 12px 5px;
+      }
+
+      button {
+        font-size: 16px;
+        padding: 12px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <section id="contact">
+    <div class="contact-container">
+      <h2>Contact Me</h2>
+      <div class="form-box">
+        <form id="contactForm">
+          <input type="text" name="name" placeholder="Your Name" required>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault(); 
+      alert("Thank you for your message!");
+      this.reset(); 
+    });
+  </script>
+</body>
+</html>
