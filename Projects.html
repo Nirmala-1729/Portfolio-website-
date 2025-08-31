@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My Projects</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(rgb(48, 63, 227), rgb(208, 228, 73));
+      color: white;
+      margin: 100px;
+      padding: 100px;
+    }
+
+    section#projects {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 36px;
+      color: white;
+      position: relative;
+      bottom: 150px;
+    }
+
+    .project-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .project-card {
+      background: #1e2a38;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      bottom: 120px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .project-content {
+      padding: 20px;
+    }
+
+    .project-title {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .project-desc {
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: #ccc;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin-right: 10px;
+      padding: 6px 12px;
+      background: #00c6ff;
+      color: black;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .project-links a:hover {
+      background: #ffffff;
+    }
+
+ 
+    @media (max-width: 1024px) {
+      body {
+        margin: 100px;
+        padding: 100px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      body {
+        margin: 10px 50px 80px;
+        padding: 120px 50px;
+      }
+
+      h2 {
+        font-size: 28px;
+        bottom: 170px;
+      }
+
+      .project-card {
+        bottom: 130px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      h2 {
+        font-size: 24px;
+        bottom: 60px;
+      }
+
+      .project-card {
+        bottom: 50px;
+      }
+
+      .project-title {
+        font-size: 18px;
+      }
+
+      .project-desc {
+        font-size: 13px;
+      }
+
+      .project-links a {
+        font-size: 12px;
+        padding: 5px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="project-container">
+      <div class="project-card">
+        <img src="project1.jpg" alt="Project 1">
+        <div class="project-content">
+          <div class="project-title">Portfolio Website</div>
+          <div class="project-desc">A personal responsive portfolio website built using HTML, CSS, and JavaScript.</div>
+          <div class="project-links">
+            <a href="C:\Users\Yuvaganesh\Desktop\niru prgs\index.html" target="_blank">Live Demo</a>
+            <a href="#" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </section>
+
+</body>
+  </html>
