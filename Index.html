@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="stars"></div>
+
+  
+  <header class="navbar">
+    <div class="logo">NA</div>
+    <div class="search-container">
+
+      <input type="text" id="searchInput" placeholder="Search projects..." onkeyup="searchFunction(event)">
+    </div>
+
+    <button id="menuBtn">☰</button>
+
+    <nav id="navLinks" style="display: none;">
+      <ul>
+        <li><a href="index.html" target="_blank">Home</a></li><hr>
+        <li><a href="about.html" target="_blank">About</a></li><hr>
+        <li><a href="skills.html" target="_blank">Skills</a></li><hr>
+        <li><a href="projects.html" target="_blank">Projects</a></li><hr>
+        <li><a href="achievements.html" target="_blank">Achievements</a></li><hr>
+        <li><a href="contact.html" target="_blank">Contact</a></li><hr>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <img src="images/img1.jpg" alt="Profile Photo" />
+    <div class="hero-text">
+      <p>Hello</p>
+      <h1>I'm <span>Nirmala Anandhan</span></h1>
+      <h2><a href="#">Future Full Stack Developer with a focus on AI</a></h2>
+      <p>From Andhra Pradesh</p>
+      
+      <a href="mailto:niruanand.8421@gmail.com" target="_blank">
+        <button class="hire-btn">Hire Me</button>
+      </a>
+    </div>
+  </section>
+
+
+  <div class="social-icons">
+    <a href="https://wa.me/7395907882" target="_blank"><img src="images/img2.jpg" alt="WhatsApp"></a>
+    <a href="mailto:niruanand.8421@gmail.com" target="_blank"><img src="images/img3.jpg" alt="Gmail"></a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><img src="images/img4.png" alt="LinkedIn"></a>
+  </div>
+
+
+  <section id="projects" style="display: none;">
+    <h2>My Projects</h2>
+    <ul id="projectList">
+      <li><a href="index.html" target="_blank">Portfolio Website</a></li>
+      <li><a href="ai-chatbot.html" target="_blank">AI Chatbot</a></li>
+      <li><a href="weather-app.html" target="_blank">Weather App</a></li>
+    </ul>
+  </section>
+
+
+  <div class="chatbot-container">
+    <div class="chat-header">AI Chatbot 🤖</div>
+    <div class="chat-body" id="chatBody">
+      <div class="bot-message">Hi! I'm your AI assistant. Ask me anything!</div>
+    </div>
+    <input type="text" id="chatInput" placeholder="Type a message..." onkeydown="if(event.key === 'Enter') sendMessage()">
+  </div>
+
+ 
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", function () {
+      navLinks.style.display = (navLinks.style.display === "none") ? "block" : "none";
+    });
+
+    
+    function searchFunction(event) {
+      let input = document.getElementById('searchInput').value.toLowerCase();
+      let items = document.querySelectorAll('#projectList li');
+      let projectSection = document.getElementById('projects');
+      let foundItem = null;
+      let hasMatch = false;
+
+      items.forEach(item => {
+        let text = item.textContent.toLowerCase();
+        if (input !== "" && text.includes(input)) {
+          item.style.display = '';
+          hasMatch = true;
+          if (!foundItem) {
+            let link = item.querySelector('a');
+            if (link) foundItem = link.href;
+          }
+        } else {
+          item.style.display = 'none';
+        }
+      });
+
+      
+      projectSection.style.display = hasMatch ? "block" : "none";
+
+      
+      if (event && event.key === "Enter" && foundItem) {
+        window.open(foundItem, "_blank");
+      }
+    }
+
+    
+    function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const chatBody = document.getElementById("chatBody");
+      const userText = input.value.trim();
+      if (userText === "") return;
+
+      const userMsg = document.createElement("div");
+      userMsg.className = "user-message";
+      userMsg.innerText = userText;
+      chatBody.appendChild(userMsg);
+
+      input.value = "";
+      chatBody.scrollTop = chatBody.scrollHeight;
+
+      setTimeout(() => {
+        const botReply = document.createElement("div");
+        botReply.className = "bot-message";
+        botReply.innerText = getBotReply(userText);
+        chatBody.appendChild(botReply);
+        chatBody.scrollTop = chatBody.scrollHeight;
+      }, 500);
+    }
+
+    function getBotReply(message) {
+      const msg = message.toLowerCase();
+      if (msg.includes("hello") || msg.includes("hi")) return "Hello! 👋 How can I help you today?";
+      if (msg.includes("name")) return "I'm your AI assistant built by Nirmala Anandhan!";
+      if (msg.includes("skills")) return "Nirmala is skilled in HTML, CSS, JavaScript, AI, and Full Stack Development.";
+      if (msg.includes("project")) return "Check out the Projects section to explore AI-based web development projects.";
+      if (msg.includes("education")) return "Nirmala has a Computer Science background and is passionate about technology.";
+      if (msg.includes("location") || msg.includes("where are you from")) return "Nirmala is from Andhra Pradesh, India.";
+      if (msg.includes("experience")) return "As a fresher, Nirmala has hands-on experience in building full-stack and AI projects.";
+      if (msg.includes("contact")) return "You can reach out via Gmail or WhatsApp using the contact icons below.";
+      if (msg.includes("goal") || msg.includes("dream")) return "Nirmala's goal is to become a successful Full Stack Developer with expertise in AI.";
+      if (msg.includes("help")) return "Sure! You can ask about skills, projects, education, or how to connect with Nirmala.";
+      return "I'm still learning! 😊 Try asking about skills, education, or goals.";
+    }
+  </script>
+</body>
+</html>
