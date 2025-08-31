@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #43cea2, #185a9d);
+      color: white;  
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      color: purple;
+      font-size: 50px;
+      font-family: 'Times New Roman', Times, serif;
+      margin-bottom: 20px;
+    }
+
+    #about {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 10%;
+      flex-wrap: wrap;
+    }
+
+    .about-container {
+      flex: 1;
+      max-width: 600px;
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .img-container {
+      width: 450px;
+      height: 450px;
+      margin-top: 20px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 5px solid white;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      animation: glowPulse 2s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    .img-container:hover {
+      transform: scale(1.05);
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes glowPulse {
+      0% {
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.3); 
+      }
+      50% {
+        box-shadow: 0 0 40px 20px rgba(255, 20, 147, 0.8); 
+      }
+      100% {
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+      }
+    }
+
+    
+    
+    @media (max-width: 1024px) {
+      #about {
+        padding: 40px 5%;
+      }
+
+      h2 {
+        font-size: 40px;
+      }
+
+      .img-container {
+        width: 350px;
+        height: 350px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      #about {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding: 30px 5%;
+      }
+
+      .about-container {
+        max-width: 100%;
+      }
+
+      .img-container {
+        width: 300px;
+        height: 300px;
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        font-size: 35px;
+      }
+
+      .about-container p {
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h2 {
+        font-size: 28px;
+      }
+
+      .img-container {
+        width: 220px;
+        height: 220px;
+      }
+
+      .about-container p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <section id="about">
+    <div class="about-container">
+      <h2>ABOUT ME</h2>
+      <p style="color:aliceblue;">
+        Hello! I'm Nirmala, a dedicated and enthusiastic Future Full Stack Developer with a focus on AI with a strong passion for creating modern, user-friendly websites. I specialize in HTML, CSS, JavaScript, and I'm currently exploring the exciting world of Artificial Intelligence.
+      </p>
+      <p class="two">
+        My goal is to build digital experiences that not only look great but also perform seamlessly. I enjoy turning ideas into real, working websites and learning new technologies along the way.
+      </p>
+      <p class="three">
+        When I'm not coding, I love sharing knowledge, learning new skills, and helping others through innovative digital solutions. Let's build something amazing together!
+      </p>
+    </div>
+
+    <div class="img-container">
+      <img src="images/img1.jpg" alt="Profile Photo" />
+    </div>
+  </section>
+
+</body>
+</html>
