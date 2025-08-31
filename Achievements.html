@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Achievements - Certificates</title>
+<style>
+
+  body { 
+    font-family: Arial, Helvetica, sans-serif; margin:0; padding:0; 
+    background: linear-gradient(270deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+    background-size: 1200% 1200%;
+    animation: bgShift 20s ease infinite;
+    color:#222; 
+  }
+  #achievements { padding:40px 20px; text-align:center; }
+
+  #achievements h2 {
+    font-size:2rem; margin-bottom:30px; 
+    text-transform:uppercase;
+    color:black;
+    letter-spacing:2px;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  }
+
+  .achievement-list {
+    display:flex; flex-wrap:wrap; justify-content:center; gap:20px;
+  }
+
+  
+  .achievement-card {
+    background:#fff; 
+    padding:20px; 
+    border-radius:15px; 
+    width:280px; 
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 1s ease forwards;
+    opacity:0;
+  }
+
+
+  .achievement-card::before {
+    content:"";
+    position:absolute; inset:0;
+    border-radius:15px;
+    padding:2px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd, #c2e9fb);
+    background-size: 400% 400%;
+    animation: borderAnim 10s linear infinite;
+   background:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index:-1;
+  }
+
+  .achievement-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow:0 12px 25px rgba(0,0,0,0.25);
+  }
+
+  .achievement-card h3 { margin:12px 0 6px; font-size:1.1rem; color:#0d47a1; }
+  .achievement-card p { font-size:0.9rem; color:#555; }
+
+  .view-btn {
+    display:inline-block; padding:10px 18px; border-radius:8px; border:0; cursor:pointer;
+    background: linear-gradient(135deg, #28a745, #81c784, #4caf50);
+    background-size: 200% 200%;
+    color:white; font-size:0.95rem;
+    transition: background-position 0.5s, transform 0.2s;
+  }
+  .view-btn:hover { background-position: right center; transform: scale(1.05); }
+  .view-btn:active { transform:translateY(2px); }
+
+ 
+  .modal {
+    display:none; 
+    position:fixed; inset:0; z-index:9999;
+    background:rgba(0,0,0,0.85);
+    justify-content:center; align-items:center; padding:24px;
+  }
+  .modal.open { display:flex; animation: fadeIn 0.4s ease; }
+
+  .modal-content {
+    position:relative; max-width:1100px; max-height:95vh; width:100%; display:flex; justify-content:center; align-items:center;
+    animation: zoomIn 0.5s ease;
+  }
+
+  .modal img {
+    max-width:100%; max-height:100%; border-radius:12px; 
+    box-shadow:0 0 25px rgba(255,0,150,0.6), 0 0 50px rgba(0,200,255,0.5);
+    animation: glowPulse 3s infinite alternate;
+  }
+
+  .close {
+    position:absolute; top:-10px; right:-10px; background:#222; color:#fff; width:42px; height:42px;
+    border-radius:50%; display:flex; justify-content:center; align-items:center; cursor:pointer; font-size:22px;
+    box-shadow:0 6px 18px rgba(0,0,0,0.4);
+    transition: background 0.3s;
+  }
+  .close:hover { background:#444; }
+
+ 
+  @keyframes fadeInUp {
+    from { opacity:0; transform:translateY(30px); }
+    to { opacity:1; transform:translateY(0); }
+  }
+  @keyframes zoomIn {
+    from { transform:scale(0.7); opacity:0; }
+    to { transform:scale(1); opacity:1; }
+  }
+  @keyframes glowPulse {
+    from { box-shadow:0 0 25px rgba(255,0,150,0.5), 0 0 50px rgba(0,200,255,0.4); }
+    to { box-shadow:0 0 40px rgba(255,0,150,0.9), 0 0 80px rgba(0,200,255,0.7); }
+  }
+  @keyframes bgShift {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+  @keyframes borderAnim {
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+  }
+
+  @media (max-width:640px) {
+    .achievement-card { width:100%; max-width:420px; }
+  }
+</style>
+</head>
+<body>
+
+<section id="achievements">
+  <h2>My Achievements</h2>
+  <div class="achievement-list">
+
+    <div class="achievement-card">
+      <h3>Digital Marketing Certificate</h3>
+      <p>Vivekananda Vision Arts and Science College</p>
+      <button type="button" class="view-btn" data-img="images/img5.jpg">View Certificate</button>
+    </div>
+
+    <div class="achievement-card">
+      <h3>Typewriting Certificate</h3>
+      <p>Junior & Senior levels</p>
+      <button type="button" class="view-btn" data-img="images/img8.jpg">View Certificate</button>
+    </div>
+
+    <div class="achievement-card">
+      <h3>Meritorious Student Award - 2024</h3>
+      <p>Awarded for outstanding academic performance</p>
+      <button type="button" class="view-btn" data-img="images/img7.jpg">View Certificate</button>
+    </div>
+
+    <div class="achievement-card">
+      <h3>Centum in Statistics 1</h3>
+      <p>Full marks in Statistics Paper 1</p>
+      <button type="button" class="view-btn" data-img="images/img6.jpg">View Certificate</button>
+    </div>
+
+    <div class="achievement-card">
+      <h3>Centum in Mathematics 2</h3>
+      <p>Full marks in Mathematics Paper 2</p>
+      <button type="button" class="view-btn" data-img="images/img6.jpg">View Certificate</button>
+    </div>
+
+  </div>
+</section>
+
+<div id="imageModal" class="modal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true">
+    <button class="close" aria-label="Close">&times;</button>
+    <img id="modalImg" alt="Full certificate image">
+  </div>
+</div>
+
+<script>
+(function(){
+  const modal = document.getElementById('imageModal');
+  const modalImg = document.getElementById('modalImg');
+  const closeBtn = modal.querySelector('.close');
+  const viewButtons = document.querySelectorAll('.view-btn');
+
+
+  function resetModal() {
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    modalImg.src = '';
+    document.body.style.overflow = '';
+  }
+  resetModal();
+
+
+  viewButtons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      const imgSrc = btn.getAttribute('data-img');
+      if (!imgSrc) return;
+      modalImg.src = imgSrc;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+
+  function tryClose(e) {
+    if (e.target === modal || e.target === closeBtn) {
+      resetModal();
+    }
+  }
+  modal.addEventListener('click', tryClose);
+  closeBtn.addEventListener('click', resetModal);
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) {
+      resetModal();
+    }
+  });
+
+  window.addEventListener('pageshow', function () {
+    resetModal();
+  });
+
+
+  const cards = document.querySelectorAll('.achievement-card');
+  cards.forEach((card, i) => {
+    setTimeout(() => { card.style.opacity = "1"; }, i * 250);
+  });
+
+})();
+</script>
+
+</body>
+    </html>
